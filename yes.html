@@ -36,7 +36,12 @@
 <body>
 
   <h1>YAAYYYYYYY 🎉❤️💖</h1>
-  <h2>BEST DECISION EVER:)</h2>
+  <h2>BEST DECISION EVER!!</h2>
+
+  <!-- AUDIO ELEMENT -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="your-song.mp3" type="audio/mpeg">
+  </audio>
 
   <script>
     document.addEventListener("click", function(event) {
@@ -54,6 +59,11 @@
       document.body.appendChild(heart);
       setTimeout(() => heart.remove(), 1500);
     }
+
+    // Ensuring music plays on mobile
+    document.addEventListener("click", function() {
+      document.getElementById("bgMusic").play();
+    });
   </script>
 
 </body>
