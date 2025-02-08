@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Valentine for Buggu</title>
+  <title>BUGGGGGUUUU HIEEEEEEEEEEEEEE</title>
   <style>
     body {
       background-color: white;
@@ -17,83 +17,151 @@
       height: 100vh;
     }
 
-    h1, h2 {
-      margin: 20px 0;
+    h1 {
+      font-size: 3em;
+    }
+
+    .buttons {
+      margin-top: 20px;
     }
 
     .btn {
-      font-size: 1.5em;
-      padding: 15px 30px;
-      margin: 20px;
+      font-size: 2em;
+      padding: 10px 20px;
+      margin: 10px;
       border: none;
       cursor: pointer;
       border-radius: 10px;
       transition: 0.3s;
-      display: inline-block;
-      position: relative;
     }
 
-    #yes-btn {
-      background-color: #F9B8F9;
+    .yes {
+      background-color: #ff69b4;
       color: white;
     }
 
-    #no-btn {
-      background-color: white;
-      color: #F9B8F9;
-      border: 2px solid #F9B8F9;
+    .no {
+      background-color: #ff4757;
+      color: white;
+      position: absolute;
     }
 
-    #yes-btn:hover, #no-btn:hover {
+    .btn:hover {
       transform: scale(1.1);
+    }
+
+    .emoji {
+      position: absolute;
+      font-size: 2.5em;
+      animation: floatUp 1.5s linear infinite;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0) scale(1); opacity: 1; }
+      to { transform: translateY(-100px) scale(1.5); opacity: 0; }
     }
   </style>
 </head>
 <body>
 
   <h1>BUGGGGGUUUU HIEEEEEEEEEEEEEE</h1>
-  <h2>Will you be my valentine, Lovu Soni Buggiye?</h2>
+  <h2>Will you be my valentine, Lovu Soni Buggiye? 💖</h2>
 
-  <div>
-    <button id="yes-btn" class="btn">YES</button>
-    <button id="no-btn" class="btn">NO</button>
+  <div class="buttons">
+    <button class="btn yes" onclick="window.location.href='yes.html'">YES</button>
+    <button class="btn no" id="noButton">NO</button>
   </div>
 
   <script>
-    const yesBtn = document.getElementById("yes-btn");
-    const noBtn = document.getElementById("no-btn");
-    let noClickCount = 0;
-    const messages = [
-      "Are you sure?", "Say yes", "Pleaseee maam", "Manja na pagal g", 
-      "BUGGGGGUUU I THOUGHT YOU LOVED ME", "I will cry 🥺", "Don't do this to me!", 
-      "You’re breaking my heart 💔", "Think about our future kids 😭", "What if I disappear?", 
-      "Lovu, I’ll be sad forever 😢", "My heart will explode 💥", "Just say yes already 😡", 
-      "My last warning 🚨", "This is your final chance 😨", "Bugguu plssss 🥹", 
-      "Do you want me to be happy or sad? 😭", "The world is watching you 👀", 
-      "Even Lodu (Mr. Max) is sad now 🐶💔", "Fine, I'll stop trying 😞"
-    ];
-
-    yesBtn.addEventListener("click", () => {
-      window.location.href = "yes.html";
+    document.addEventListener("click", function(event) {
+      createFloatingHeart(event.clientX, event.clientY);
     });
 
-    noBtn.addEventListener("click", () => {
-      noClickCount++;
-      if (noClickCount < messages.length) {
-        noBtn.innerText = messages[noClickCount];
-      } else {
-        noBtn.innerText = "OKAY FINE 😭";
-      }
-      moveNoButton();
-      yesBtn.style.fontSize = `${1.5 + noClickCount * 0.5}em`;
+    function createFloatingHeart(x, y) {
+      const heart = document.createElement("div");
+      heart.classList.add("emoji");
+      heart.innerHTML = ["❤️", "💖", "🥰", "😍", "🎉"][Math.floor(Math.random() * 5)];
+      heart.style.left = `${x}px`;
+      heart.style.top = `${y}px`;
+      heart.style.position = "absolute";
+      heart.style.animationDuration = `${Math.random() * 2 + 1}s`;
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 1500);
+    }
+
+    // Moving "No" Button
+    const noButton = document.getElementById("noButton");
+    noButton.addEventListener("mouseover", function() {
+      const randomX = Math.random() * (window.innerWidth - 200);
+      const randomY = Math.random() * (window.innerHeight - 100);
+      noButton.style.left = `${randomX}px`;
+      noButton.style.top = `${randomY}px`;
+    });
+  </script>
+
+</body>
+</html>
+Final yes.html (YES Page)
+Replace your existing yes.html with this:
+
+html
+Copy
+Edit
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YAAYYYYYYY</title>
+  <style>
+    body {
+      background-color: white;
+      color: #F9B8F9;
+      font-family: sans-serif;
+      text-align: center;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      font-size: 4em;
+    }
+
+    .emoji {
+      position: absolute;
+      font-size: 2.5em;
+      animation: floatUp 1.5s linear infinite;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0) scale(1); opacity: 1; }
+      to { transform: translateY(-100px) scale(1.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>YAAYYYYYYY 🎉❤️💖</h1>
+  <h2>BEST DECISION EVER!!</h2>
+
+  <script>
+    document.addEventListener("click", function(event) {
+      createFloatingHeart(event.clientX, event.clientY);
     });
 
-    function moveNoButton() {
-      const x = Math.random() * (window.innerWidth - noBtn.clientWidth);
-      const y = Math.random() * (window.innerHeight - noBtn.clientHeight);
-      noBtn.style.position = 'absolute';
-      noBtn.style.left = `${x}px`;
-      noBtn.style.top = `${y}px`;
+    function createFloatingHeart(x, y) {
+      const heart = document.createElement("div");
+      heart.classList.add("emoji");
+      heart.innerHTML = ["❤️", "💖", "🥰", "😍", "🎉"][Math.floor(Math.random() * 5)];
+      heart.style.left = `${x}px`;
+      heart.style.top = `${y}px`;
+      heart.style.position = "absolute";
+      heart.style.animationDuration = `${Math.random() * 2 + 1}s`;
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 1500);
     }
   </script>
 
