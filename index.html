@@ -43,7 +43,6 @@
     .no {
       background-color: #ff4757;
       color: white;
-      position: absolute;
     }
 
     .btn:hover {
@@ -69,7 +68,7 @@
 
   <div class="buttons">
     <button class="btn yes" onclick="window.location.href='yes.html'">YES</button>
-    <button class="btn no" id="noButton">NO</button>
+    <button class="btn no" id="noButton" onclick="changeNoText()">NO</button>
   </div>
 
   <script>
@@ -80,7 +79,7 @@
     function createFloatingHeart(x, y) {
       const heart = document.createElement("div");
       heart.classList.add("emoji");
-      heart.innerHTML = ["❤️", "💖", "🥰", "😍", "🎉"][Math.floor(Math.random() * 5)];
+      heart.innerHTML = "❤️";
       heart.style.left = `${x}px`;
       heart.style.top = `${y}px`;
       heart.style.position = "absolute";
@@ -89,14 +88,25 @@
       setTimeout(() => heart.remove(), 1500);
     }
 
-    // Moving "No" Button
-    const noButton = document.getElementById("noButton");
-    noButton.addEventListener("mouseover", function() {
-      const randomX = Math.random() * (window.innerWidth - 200);
-      const randomY = Math.random() * (window.innerHeight - 100);
-      noButton.style.left = `${randomX}px`;
-      noButton.style.top = `${randomY}px`;
-    });
+    // Changing NO button text
+    let noTexts = [
+      "Are you sure?", "Say yes", "Pleaseee maam", "Manja na pagal g", 
+      "BUGGGGGUUU I THOUGHT YOU LOVED ME", "You're breaking my heart 💔",
+      "Think again 🤔", "Come on Buggu 😭", "Just say yes 🥺", "This is your last chance!",
+      "You don't wanna see me cry 😢", "No isn't an option!", "Buggu pleasee 😫", 
+      "I have no plan B!", "Final offer: Say yes!", "Why you doing this? 😭", 
+      "Plsssssssssssss", "Buggu don't be mean 😔", "I'm getting emotional now 🥹", "Don't break my heart!"
+    ];
+    let noClickCount = 0;
+
+    function changeNoText() {
+      if (noClickCount < noTexts.length) {
+        document.getElementById("noButton").innerText = noTexts[noClickCount];
+        noClickCount++;
+      } else {
+        document.getElementById("noButton").innerText = "Just say YES!";
+      }
+    }
   </script>
 
 </body>
