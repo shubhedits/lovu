@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine for Buggu</title>
+  <style>
+    body {
+      background-color: white;
+      color: #F9B8F9;
+      font-family: sans-serif;
+      text-align: center;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1, h2 {
+      margin: 20px 0;
+    }
+
+    .btn {
+      font-size: 1.5em;
+      padding: 15px 30px;
+      margin: 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: 0.3s;
+      display: inline-block;
+      position: relative;
+    }
+
+    #yes-btn {
+      background-color: #F9B8F9;
+      color: white;
+    }
+
+    #no-btn {
+      background-color: white;
+      color: #F9B8F9;
+      border: 2px solid #F9B8F9;
+    }
+
+    #yes-btn:hover, #no-btn:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>BUGGGGGUUUU HIEEEEEEEEEEEEEE</h1>
+  <h2>Will you be my valentine, Lovu Soni Buggiye?</h2>
+
+  <div>
+    <button id="yes-btn" class="btn">YES</button>
+    <button id="no-btn" class="btn">NO</button>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById("yes-btn");
+    const noBtn = document.getElementById("no-btn");
+    let noClickCount = 0;
+    const messages = [
+      "Are you sure?", "Say yes", "Pleaseee maam", "Manja na pagal g", 
+      "BUGGGGGUUU I THOUGHT YOU LOVED ME", "I will cry 🥺", "Don't do this to me!", 
+      "You’re breaking my heart 💔", "Think about our future kids 😭", "What if I disappear?", 
+      "Lovu, I’ll be sad forever 😢", "My heart will explode 💥", "Just say yes already 😡", 
+      "My last warning 🚨", "This is your final chance 😨", "Bugguu plssss 🥹", 
+      "Do you want me to be happy or sad? 😭", "The world is watching you 👀", 
+      "Even Lodu (Mr. Max) is sad now 🐶💔", "Fine, I'll stop trying 😞"
+    ];
+
+    yesBtn.addEventListener("click", () => {
+      window.location.href = "yes.html";
+    });
+
+    noBtn.addEventListener("click", () => {
+      noClickCount++;
+      if (noClickCount < messages.length) {
+        noBtn.innerText = messages[noClickCount];
+      } else {
+        noBtn.innerText = "OKAY FINE 😭";
+      }
+      moveNoButton();
+      yesBtn.style.fontSize = `${1.5 + noClickCount * 0.5}em`;
+    });
+
+    function moveNoButton() {
+      const x = Math.random() * (window.innerWidth - noBtn.clientWidth);
+      const y = Math.random() * (window.innerHeight - noBtn.clientHeight);
+      noBtn.style.position = 'absolute';
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    }
+  </script>
+
+</body>
+</html>
