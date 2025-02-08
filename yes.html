@@ -23,13 +23,13 @@
 
     .emoji {
       position: absolute;
-      font-size: 3em;
-      animation: spin 2s linear infinite;
+      font-size: 2.5em;
+      animation: floatUp 1.5s linear infinite;
     }
 
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    @keyframes floatUp {
+      from { transform: translateY(0) scale(1); opacity: 1; }
+      to { transform: translateY(-100px) scale(1.5); opacity: 0; }
     }
   </style>
 </head>
@@ -38,29 +38,21 @@
   <h1>YAAYYYYYYY 🎉❤️💖</h1>
   <h2>BEST DECISION EVER!!</h2>
 
-  <button onclick="playMusic()">CLICK TO CELEBRATE 🎶</button>
-
-  <audio id="bgMusic" loop>
-   <source src="assets/bgm.mp3" type="audio/mp3">
-  </audio>
-
   <script>
-    function playMusic() {
-      document.getElementById("bgMusic").play();
-    }
+    document.addEventListener("click", function(event) {
+      createFloatingHeart(event.clientX, event.clientY);
+    });
 
-    function createSpinningEmoji() {
-      const emoji = document.createElement("div");
-      emoji.classList.add("emoji");
-      emoji.innerHTML = ["❤️", "💖", "🥰", "😍", "🎉"][Math.floor(Math.random() * 5)];
-      emoji.style.left = `${Math.random() * 100}vw`;
-      emoji.style.top = `${Math.random() * 100}vh`;
-      emoji.style.animationDuration = `${Math.random() * 3 + 1}s`;
-      document.body.appendChild(emoji);
-    }
-
-    for (let i = 0; i < 20; i++) {
-      createSpinningEmoji();
+    function createFloatingHeart(x, y) {
+      const heart = document.createElement("div");
+      heart.classList.add("emoji");
+      heart.innerHTML = ["❤️", "💖", "🥰", "😍", "🎉"][Math.floor(Math.random() * 5)];
+      heart.style.left = `${x}px`;
+      heart.style.top = `${y}px`;
+      heart.style.position = "absolute";
+      heart.style.animationDuration = `${Math.random() * 2 + 1}s`;
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 1500);
     }
   </script>
 
