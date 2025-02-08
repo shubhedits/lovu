@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YAAYYYYYYY</title>
+  <style>
+    body {
+      background-color: white;
+      color: #F9B8F9;
+      font-family: sans-serif;
+      text-align: center;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      font-size: 4em;
+    }
+
+    .emoji {
+      position: absolute;
+      font-size: 3em;
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>YAAYYYYYYY 🎉❤️💖</h1>
+  <h2>BEST DECISION EVER!!</h2>
+
+  <audio autoplay loop>
+    <source src="bgm.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    function createSpinningEmoji() {
+      const emoji = document.createElement("div");
+      emoji.classList.add("emoji");
+      emoji.innerHTML = ["❤️", "💖", "🥰", "😍", "🎉"][Math.floor(Math.random() * 5)];
+      emoji.style.left = `${Math.random() * 100}vw`;
+      emoji.style.top = `${Math.random() * 100}vh`;
+      emoji.style.animationDuration = `${Math.random() * 3 + 1}s`;
+      document.body.appendChild(emoji);
+    }
+
+    for (let i = 0; i < 20; i++) {
+      createSpinningEmoji();
+    }
+  </script>
+
+</body>
+</html>
