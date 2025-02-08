@@ -38,11 +38,17 @@
   <h1>YAAYYYYYYY 🎉❤️💖</h1>
   <h2>BEST DECISION EVER!!</h2>
 
-  <audio autoplay loop>
+  <button onclick="playMusic()">CLICK TO CELEBRATE 🎶</button>
+
+  <audio id="bgMusic" loop>
     <source src="bgm.mp3" type="audio/mp3">
   </audio>
 
   <script>
+    function playMusic() {
+      document.getElementById("bgMusic").play();
+    }
+
     function createSpinningEmoji() {
       const emoji = document.createElement("div");
       emoji.classList.add("emoji");
